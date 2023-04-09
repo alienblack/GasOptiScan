@@ -56,9 +56,3 @@ contract TestLoop {
         return x;
     }
 }
-
-
-
-
-
-

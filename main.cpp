@@ -1,10 +1,15 @@
 #include <bits/stdc++.h>
 // #include<fstream>
-#include "/Users/alien/Desktop/whileoptimizer/headdetect.h"
-#include "/Users/alien/Desktop/whileoptimizer/lowerbound.h"
-#include "/Users/alien/Desktop/whileoptimizer/stackvariable.h"
-#include "/Users/alien/Desktop/whileoptimizer/upperbound.h"
-#include "/Users/alien/Desktop/whileoptimizer/headdetection1.h"
+// #include "/Users/alien/Desktop/whileoptimizer/headdetect.h"
+// #include "/Users/alien/Desktop/whileoptimizer/lowerbound.h"
+// #include "/Users/alien/Desktop/whileoptimizer/stackvariable.h"
+// #include "/Users/alien/Desktop/whileoptimizer/upperbound.h"
+// #include "/Users/alien/Desktop/whileoptimizer/headdetection1.h"
+#include "headdetect.h"
+#include "lowerbound.h"
+#include "stackvariable.h"
+#include "upperbound.h"
+#include "headdetection1.h"
 #define endl "\n";
 using namespace std;
 typedef long long ll;
@@ -45,11 +50,17 @@ int convert(string hexVal)
 }
 
 int main() {
+
+    system("solc --bin-runtime code.sol | tail -n 1 > code.hex");
+    system("python3 bin/decompile code.hex > disasm.txt");
     // system("cd dow")
 
-	string disasm_input_file="/Users/alien/Desktop/whileoptimizer/disasm.txt";
-	string graph_input_file="/Users/alien/Desktop/whileoptimizer/input_file.txt";
-	string graph_output_file="/Users/alien/Desktop/whileoptimizer/graph_output_file.txt";
+	// string disasm_input_file="/Users/alien/Desktop/whileoptimizer/disasm.txt";
+	// string graph_input_file="/Users/alien/Desktop/whileoptimizer/input_file.txt";
+	// string graph_output_file="/Users/alien/Desktop/whileoptimizer/graph_output_file.txt";
+    string disasm_input_file="disasm.txt";
+	string graph_input_file="input_file.txt";
+	string graph_output_file="graph_output_file.txt";
 
 
 	make_graph_input(disasm_input_file,graph_input_file);
@@ -157,9 +168,9 @@ int main() {
 
 
 
-    for ( auto it : heads){
-        cout << it << endl;
-    }
+    // for ( auto it : heads){
+    //     cout << it << endl;
+    // }
 
     fin2.close();
 
@@ -291,26 +302,26 @@ int main() {
 
     
 
-    for (auto it = m.begin(); it!= m.end();it++){
-        int j=0;
-        cout << it->first << ": " << it->second;
+    // for (auto it = m.begin(); it!= m.end();it++){
+    //     int j=0;
+    //     cout << it->first << ": " << it->second;
 
         
-        // j++;
-        // string value;
-        // for ( auto value: (*it).second){
-        //     cout << value;
-        // }
+    //     // j++;
+    //     // string value;
+    //     // for ( auto value: (*it).second){
+    //     //     cout << value;
+    //     // }
 
-        cout << endl;
-        // for (int i =0; i < m[tails[j]].size(); i++){
-        //     cout << tails[j] << " "<< (*it).second;
+    //     cout << endl;
+    //     // for (int i =0; i < m[tails[j]].size(); i++){
+    //     //     cout << tails[j] << " "<< (*it).second;
 
-        // }
+    //     // }
 
-        // cout << (*it).second << endl;
+    //     // cout << (*it).second << endl;
 
-    }
+    // }
 
     fin3.close();
 
@@ -381,26 +392,26 @@ int main() {
 
     
 
-    for (auto it = m2.begin(); it!= m2.end();it++){
-        int j=0;
-        cout << it->first << ": " << it-> second;
+    // for (auto it = m2.begin(); it!= m2.end();it++){
+    //     int j=0;
+    //     cout << it->first << ": " << it-> second;
 
         
-        // j++;
-        // string value;
-        // for ( auto value: (*it).second){
-        //     cout << value;
-        // }
+    //     // j++;
+    //     // string value;
+    //     // for ( auto value: (*it).second){
+    //     //     cout << value;
+    //     // }
 
-        cout << endl;
-        // for (int i =0; i < m[tails[j]].size(); i++){
-        //     cout << tails[j] << " "<< (*it).second;
+    //     cout << endl;
+    //     // for (int i =0; i < m[tails[j]].size(); i++){
+    //     //     cout << tails[j] << " "<< (*it).second;
 
-        // }
+    //     // }
 
-        // cout << (*it).second << endl;
+    //     // cout << (*it).second << endl;
 
-    }
+    // }
     fin4.close();
 
  int diff[m.size()];
@@ -411,7 +422,7 @@ int main() {
 
         diff[i] = m[heads[i]] - m2[heads[i]];
 
-        cout << diff[i] << " " <<endl;
+        // cout << diff[i] << " " <<endl;
 
         md[diff[i]].push_back(heads[i]);
         
@@ -421,21 +432,21 @@ int main() {
 
     }
 
-     for (auto it = md.begin(); it!= md.end();it++){
+    //  for (auto it = md.begin(); it!= md.end();it++){
         
-        cout << it->first << ": " ;
+    //     cout << it->first << ": " ;
 
         
     
         
-        for ( auto value: (*it).second){
-            cout << value << " ";
-        }
+    //     for ( auto value: (*it).second){
+    //         cout << value << " ";
+    //     }
 
-        cout << endl;
-     }
+    //     cout << endl;
+    //  }
 
-    cout << endl;
+    // cout << endl;
     
     ifstream fin5;
     fin5.open(stack_variable_output_file);
